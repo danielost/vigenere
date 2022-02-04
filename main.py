@@ -22,7 +22,25 @@ def encrypt_vigenere(input_message, key):
     return output
 
 
+# decryption vvv
+
+
+def decrypt_vigenere(input_message, key):
+    key = check_key(input_message, key)
+    output = ''
+    for i in range(len(input_message)):
+        if input_message[i] == ' ':
+            output += ' '
+            continue
+        temp = (ord(input_message[i]) - ord(key[i]) + 26) % 26
+        temp += ord('A')
+        output += chr(temp)
+    return output
+
+
 print(encrypt_vigenere('HELLO THERE', 'DISTLAB'))
+print(decrypt_vigenere('KMDEZ UKMJX', 'DISTLAB'))
+
 
 
 
